@@ -1,0 +1,4 @@
+<p>{{articles.length}}</p>
+<nb-card *ngFor="let article of articles">
+  <div style="height:500px" [innerHtml]="article.body"></div>
+</nb-card>

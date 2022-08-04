@@ -1,0 +1,46 @@
+<!-- <nb-card *ngFor="let article of articles">
+  <nb-user size="large" name="{{article.user.name}}" title="Engineer"picture="{{article.user.profile_image}}">
+  </nb-user> -->
+  <!-- <img src="{{article.cover_image}}" alt="" style="border: 1em;"/> -->
+  <!-- <nb-card-header>
+    {{article.title}}
+  </nb-card-header> -->
+  <!-- <nb-card-body>
+    {{article.description}}
+  </nb-card-body> -->
+  <!-- <nb-card-footer>
+    <button nbButton status="primary" [routerLink]="['/home/details', article.id]">View Page</button>
+    <button nbButton status="primary" (click)="onpenLink(article.canonical_url)" >Read more</button>
+  </nb-card-footer> -->
+<!-- </nb-card> -->
+
+<nb-reveal-card *ngFor="let article of articles">
+  <nb-card-front>
+    <nb-card status="info" [size]="'medium'">
+        <nb-card-header>
+            {{article.title}}
+            {{article.readable_publish_date}}
+        </nb-card-header>
+        <nb-card-body>
+            <div style="height:500px; width: 450px; display: inline;">
+                <img src="{{article.social_image}}"style="height:230px">
+                <h6 style="float: right;">Description: {{article.description}}</h6>
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+          <span>
+            <nb-user size="large" name="{{article.user.name}}" picture="{{article.user.profile_image}}"></nb-user>
+            <button nbButton status="primary" (click)="onpenLink(article.canonical_url)">Read more</button></span>
+        </nb-card-footer>
+    </nb-card>
+</nb-card-front>
+<nb-card-back>
+    <nb-card>
+        <nb-card-body>
+            <div style="height:500px" [innerHtml]="article.body"></div>
+            <!-- <ng-container ></ng-container> -->
+        </nb-card-body>
+    </nb-card>
+</nb-card-back>
+
+</nb-reveal-card>
